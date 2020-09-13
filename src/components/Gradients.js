@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { gradients, uniqueTags } from "../gradients"
+import { gradients } from "../gradients"
 import GradientsList from "./GradientsList"
 import GradientsSelect from "./GradientsSelect"
 
@@ -13,11 +13,7 @@ const Gradients = () => {
   })
   return (
     <>
-      <GradientsSelect
-        uniqueTags={uniqueTags}
-        filter={filter}
-        setFilter={setFilter}
-      />
+      <GradientsSelect filter={filter} setFilter={setFilter} />
       <GradientsList
         list={displayedList}
         filter={filter}

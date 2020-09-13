@@ -1,7 +1,8 @@
 import React from "react"
+import { uniqueTags } from "../gradients"
 
 const GradientsSelect = (props) => {
-  const { filter, setFilter, uniqueTags } = props
+  const { filter, setFilter } = props
   const handleSelectChange = (e) => {
     setFilter(e.target.value)
   }

@@ -131,14 +131,13 @@ Nous allons également modifier `Gradients.js`
 
 ```javascript
 import React from "react"
-import { uniqueTags } from "../gradients"
 import GradientsList from "./GradientsList"
 import GradientsSelect from "./GradientsSelect"
 
 const Gradients = () => {
   return (
     <>
-      <GradientsSelect tags={uniqueTags} />
+      <GradientsSelect />
       <GradientsList />
     </>
   )
@@ -230,10 +229,10 @@ export default GradientTagButton
 ```javascript
 // src/components/GradientsSelect.js
 import React, { useContext } from "react"
+import { uniqueTags } from "../gradients"
 import { FilterContext } from "./../context/FilterContext"
 
-const GradientsSelect = (props) => {
-  const { tags } = props
+const GradientsSelect = () => {
   const { filter, setFilter } = useContext(FilterContext)
   const handleSelectChange = (e) => {
     setFilter(e.target.value)
