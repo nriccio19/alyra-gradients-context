@@ -1,7 +1,7 @@
 import React from "react"
 
 const GradientsSelect = (props) => {
-  const { filter, tags, setFilter } = props
+  const { filter, setFilter, uniqueTags } = props
   const handleSelectChange = (e) => {
     setFilter(e.target.value)
   }
@@ -17,7 +17,7 @@ const GradientsSelect = (props) => {
         onChange={handleSelectChange}
       >
         <option value="all">Tous</option>
-        {tags.map((el) => (
+        {uniqueTags.map((el) => (
           <option key={el} value={el}>
             {el}
           </option>

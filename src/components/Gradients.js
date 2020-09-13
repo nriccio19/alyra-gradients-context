@@ -14,7 +14,7 @@ const Gradients = () => {
   return (
     <>
       <GradientsSelect
-        tags={uniqueTags}
+        uniqueTags={uniqueTags}
         filter={filter}
         setFilter={setFilter}
       />
