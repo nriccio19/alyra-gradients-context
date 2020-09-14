@@ -5,7 +5,7 @@ import GradientsSelect from "./GradientsSelect"
 
 const Gradients = () => {
   const [filter, setFilter] = useState("all")
-  const displayedList = gradients.filter((el) => {
+  const filteredList = gradients.filter((el) => {
     if (filter === "all") {
       return true
     }
@@ -15,7 +15,7 @@ const Gradients = () => {
     <>
       <GradientsSelect filter={filter} setFilter={setFilter} />
       <GradientsList
-        list={displayedList}
+        list={filteredList}
         filter={filter}
         setFilter={setFilter}
       />
