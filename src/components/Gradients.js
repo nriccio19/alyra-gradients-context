@@ -1,26 +1,14 @@
-import React, { useState } from "react"
-import { gradients } from "../gradients"
-import GradientsList from "./GradientsList"
-import GradientsSelect from "./GradientsSelect"
+import React from "react";
+import GradientsList from "./GradientsList";
+import GradientsSelect from "./GradientsSelect";
 
 const Gradients = () => {
-  const [filter, setFilter] = useState("all")
-  const filteredList = gradients.filter((el) => {
-    if (filter === "all") {
-      return true
-    }
-    return el.tags.includes(filter)
-  })
   return (
     <>
-      <GradientsSelect filter={filter} setFilter={setFilter} />
-      <GradientsList
-        list={filteredList}
-        filter={filter}
-        setFilter={setFilter}
-      />
+      <GradientsSelect />
+      <GradientsList />
     </>
-  )
-}
+  );
+};
 
-export default Gradients
+export default Gradients;

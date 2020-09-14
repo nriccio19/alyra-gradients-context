@@ -1,7 +1,8 @@
-import React from "react"
-import Gradients from "./components/Gradients"
-import GradientsHeader from "./components/GradientsHeader"
-import Footer from "./components/Footer"
+import React from "react";
+import Gradients from "./components/Gradients";
+import GradientsHeader from "./components/GradientsHeader";
+import Footer from "./components/Footer";
+import FilterContextProvider from "./context/FilterContext";
 
 function App() {
   return (
@@ -12,11 +13,13 @@ function App() {
       </GradientsHeader>
       <main className="container">
         <h1 className="text-center my-4">Alyra Gradients</h1>
-        <Gradients />
+        <FilterContextProvider>
+          <Gradients />
+        </FilterContextProvider>
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

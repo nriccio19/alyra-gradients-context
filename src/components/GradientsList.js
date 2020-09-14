@@ -1,12 +1,20 @@
-import React from "react"
-import Gradient from "./Gradient"
+import React, { useContext } from "react";
+import { gradients } from "./../gradients";
+import Gradient from "./Gradient";
+import { FilterContext } from "./../context/FilterContext";
 
-const GradientsList = (props) => {
-  const { list, filter, setFilter } = props
+const GradientsList = () => {
+  const { filter } = useContext(FilterContext);
+  const filteredList = gradients.filter((el) => {
+    if (filter === "all") {
+      return true;
+    }
+    return el.tags.includes(filter);
+  });
   return (
     <ul className="row list-unstyled">
-      {list.map((el) => {
-        const { name, start, end, tags = [] } = el
+      {filteredList.map((el) => {
+        const { name, start, end, tags = [] } = el;
         return (
           <Gradient
             key={el.name}
@@ -14,13 +22,11 @@ const GradientsList = (props) => {
             colorEnd={end}
             name={name}
             tags={tags}
-            filter={filter}
-            setFilter={setFilter}
           />
-        )
+        );
       })}
     </ul>
-  )
-}
+  );
+};
 
-export default GradientsList
+export default GradientsList;

@@ -1,10 +1,12 @@
-import React from "react"
+import React, { useContext } from "react";
+import { FilterContext } from "./../../context/FilterContext";
 
-const GradientTagButton = ({ tag, filter, setFilter }) => {
-  const className = filter === tag ? "bg-light" : "bg-dark text-white"
+const GradientTagButton = ({ tag }) => {
+  const { filter, setFilter } = useContext(FilterContext);
+  const className = filter === tag ? "bg-light" : "bg-dark text-white";
   const handleTagClick = () => {
-    setFilter(tag)
-  }
+    setFilter(tag);
+  };
   return (
     <button
       type="button"
@@ -14,7 +16,7 @@ const GradientTagButton = ({ tag, filter, setFilter }) => {
     >
       {tag}
     </button>
-  )
-}
+  );
+};
 
-export default GradientTagButton
+export default GradientTagButton;
